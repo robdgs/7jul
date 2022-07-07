@@ -27,4 +27,5 @@ addButton.addEventListener("click", function () {
   listItem.innerHTML += `<li><input type="checkbox"/><span>${mainInput.value}</span></li>`;
   // Per avere più di una task in lista metto += così si ripete tutto quanto
   mainInput.value = ""; //Svuota l'input dopo il click
+  event.preventDefault();
 });
