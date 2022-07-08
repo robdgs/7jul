@@ -22,10 +22,16 @@
 const addButton = document.querySelector(".add-button");
 const listItem = document.querySelector(".ul-item");
 const mainInput = document.querySelector(".insert-task");
+// const valueInput = mainInput.value; //prende il valore solo al momneto dell'assegnazione, per evitarlo dovrei usare il getter o prendere il valore ogni volta che ho la funzione
+// console.log("b", typeof valueInput);
 
-addButton.addEventListener("click", function () {
-  listItem.innerHTML += `<li><input type="checkbox"/><span>${mainInput.value}</span></li>`;
-  // Per avere più di una task in lista metto += così si ripete tutto quanto
-  mainInput.value = ""; //Svuota l'input dopo il click
+addButton.addEventListener("click", function (event) {
   event.preventDefault();
+  if (mainInput.value.length === 0) {
+    alert("...");
+  } else {
+    listItem.innerHTML += `<li><input type="checkbox"/><span>${mainInput.value}</span></li>`;
+    // Per avere più di una task in lista metto += così si ripete tutto quanto
+  }
+  mainInput.value = ""; //Svuota l'input dopo il click
 });
